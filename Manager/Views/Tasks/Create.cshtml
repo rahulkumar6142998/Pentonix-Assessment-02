@@ -1,0 +1,138 @@
+﻿@model Manager.Models.Task
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>AssignedTask</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.TicketNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TicketNo, new { htmlAttributes = new { @class = "form-control" }, placeholder = "short name" ,required = "required" })
+                @Html.ValidationMessageFor(model => model.TicketNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Name, ViewBag.NameList as SelectList, new { @class = "form-Control", required = "required" })
+
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Task1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="subSkill-box">
+                    <div class="subSkill-box-wrapper" style="position:relative">
+                        <div class="subSkill-box-content flex-row flex-wrap bottom">
+                            @{
+                                List<SelectListItem> listItems = new List<SelectListItem>();
+                                listItems.Add(new SelectListItem
+                                {
+                                    Text = "Investigation",
+                                    Value = "Investigation"
+                                });
+                                listItems.Add(new SelectListItem
+                                {
+                                    Text = "Testing",
+                                    Value = "Testing",
+                                    Selected = true
+                                });
+                                listItems.Add(new SelectListItem
+                                {
+                                    Text = "development",
+                                    Value = "development",
+                                    Selected = true
+                                });
+                          
+
+                            }
+                            @Html.DropDownListFor(model => model.Task1, listItems, "-- Select Task --", new { @Id = "Task", required = "required" })
+
+                        </div>
+                    </div>
+                </div>
+
+                @Html.ValidationMessageFor(model => model.Task1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+       
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PlanedEffort, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PlanedEffort, new { htmlAttributes = new { @class = "form-control", placeholder = "short name", required = "required" } })
+                @Html.ValidationMessageFor(model => model.PlanedEffort , "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TaskStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="subSkill-box">
+                    <div class="subSkill-box-wrapper" style="position:relative">
+                        <div class="subSkill-box-content flex-row flex-wrap bottom">
+                            @{
+                                List<SelectListItem> listItems1 = new List<SelectListItem>();
+                                listItems1.Add(new SelectListItem
+                                {
+                                    Text = "Started",
+                                    Value = "Started"
+                                });
+                                listItems1.Add(new SelectListItem
+                                {
+                                    Text = "In progress",
+                                    Value = "progress",
+                                    Selected = true
+                                });
+                                listItems1.Add(new SelectListItem
+                                {
+                                    Text = "Completed",
+                                    Value = "Completed",
+                                    Selected = true
+                                });
+
+                            }
+                            @Html.DropDownListFor(model => model.TaskStatus, listItems1, "-- Select Status --", new { @Id = "Status" })
+
+                        </div>
+                    </div>
+                </div>
+
+                @Html.ValidationMessageFor(model => model.TaskStatus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", placeholder = "Date", required = "required" } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back", "Index")
+</div>
+

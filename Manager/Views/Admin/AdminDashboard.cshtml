@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "AdminDashboard";
+}
+
+
+<style>
+    body {
+        background: url('../../Imgs/dashboard_background.jpg');
+    }
+
+    .assigned {
+        margin: 20px;
+        width: 150px;
+        height: 150px;
+        background-color: orange;
+        align-content: center;
+        justify-content: center;
+    }
+
+        .assigned img {
+            margin-top: 10px;
+        }
+
+    .user {
+        margin: 20px;
+        width: 150px;
+        height: 150px;
+        background-color: cornflowerblue;
+        align-content: center;
+        justify-content: center;
+    }
+
+        .user img {
+            margin-top: 10px;
+        }
+</style>
+
+<h2>
+    Hello @ViewBag.Name
+</h2>
+<div class="row" style="display:flex">
+    <div class="user  text-center">
+        <img src="~/Imgs/users-group.png" />
+        <br />
+
+        @Html.ActionLink("User", "AllUser", "Admin")
+
+    </div>
+    <div class="assigned text-center my-5">
+        <img src="~/Imgs/assigned_task.png" />
+        <br />
+        @Html.ActionLink("Today Assigned", "Index", "Tasks")
+    </div>
+</div>

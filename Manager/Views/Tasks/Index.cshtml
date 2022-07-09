@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Manager.Models.Task>
+
+@{
+    ViewBag.Title = "Index";
+    
+}
+
+
+<style>
+    body {
+        background: url('../../Imgs/dashboard_background.jpg');
+        color: white;
+    }
+</style>
+<h2> Assigned Tasks</h2>
+
+<p>
+    @Html.ActionLink("Assign Task", "Create")
+</p>
+
+
+<table class="table table-bordered" id="myTable">
+
+    <thead>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Task1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlanedEffort)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+
+        </tr>
+    </thead>
+
+
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Task1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlanedEffort)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaskStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    <button style="background-color:red;">@Html.ActionLink("Delete", "DeleteConfirmed", new { id = item.TicketNo })</button>
+
+                </td>
+
+            </tr>
+        }
+    <tbody>
+</table>
+
+
