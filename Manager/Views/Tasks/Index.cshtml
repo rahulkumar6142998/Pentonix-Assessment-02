@@ -2,21 +2,31 @@
 
 @{
     ViewBag.Title = "Index";
-    
+
 }
 
 
-<style>
-    body {
-        background: url('../../Imgs/dashboard_background.jpg');
-        color: white;
-    }
-</style>
-<h2> Assigned Tasks</h2>
+<link href="~/Content/CSS/AdminTask.css" rel="stylesheet" />
 
-<p>
-    @Html.ActionLink("Assign Task", "Create")
-</p>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 AssignedTasks">
+            <h2>
+                @Html.ActionLink("Assign Task", "Create")
+            </h2>
+        </div>
+        <div class="col-md-6 logout">
+            <h3>
+                @Html.ActionLink("Logout", "Logout", "Login")
+            </h3>
+        </div>
+    </div>
+
+</div>
+
+
 
 
 <table class="table table-bordered" id="myTable">
@@ -39,6 +49,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Date)
             </th>
+
 
         </tr>
     </thead>
@@ -66,7 +77,7 @@
                     @Html.DisplayFor(modelItem => item.Date)
                 </td>
                 <td>
-                    <button style="background-color:red;">@Html.ActionLink("Delete", "DeleteConfirmed", new { id = item.TicketNo })</button>
+                    <button style="background-color:red;">@Html.ActionLink("Delete", "Delete", new { id = item.TicketNo })</button>
 
                 </td>
 
@@ -76,3 +87,10 @@
 </table>
 
 
+@*<div class="container">
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6"></div>
+        </div>
+
+    </div>*@

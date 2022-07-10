@@ -28,33 +28,40 @@ namespace Manager.Controllers
             {
 
 
-                var f_password = login.Password;
-                var data = _db.Users.Where(s => s.Email.Equals(login.Email) && s.Password.Equals(f_password)).ToList();
+                var password = login.Password;
+                var check = _db.Users.Where(s => s.Email.Equals(login.Email) && s.Password.Equals(password)).ToList();
 
 
 
-                if (data.Count() > 0)
+                if (check.Count() > 0)
                 {
                     ViewData["Message"] = "Success";
-                    if (data[0].Type == "Admin")
+                    if (check[0].Type == "Admin")
                     {
                         
-                        Session["Email"] = data.FirstOrDefault().Email;
-                        ViewBag.Name = data[0].Email;
-                        return RedirectToRoute(new { controller = "Admin", action = "AdminDashboard" });
+                        Session["Email"] = check.FirstOrDefault().Email;
+                        ViewBag.Name = check[0].FirstName;
+                       
+                        //  return RedirectToRoute(new { controller = "Admin", action = "AdminDashboard" });
+                        return View("~/Views/Admin/AdminDashboard.cshtml");
 
                     }
                     else
                     {
-                        Session["Email"] = data.FirstOrDefault().Email;
-                        ViewBag.Name = data[0].Email;
-                        return RedirectToRoute(new { controller = "Emp", action = "EmpDashboard" });
+                        Session["Email"] = check.FirstOrDefault().Email;
+                        Session["Name"] = check.FirstOrDefault().FirstName;
+                        ViewBag.Name = check[0].FirstName;
+                        
+
+                        //return RedirectToRoute(new { controller = "Emp", action = "EmpDashboard" });
+                        return View("~/Views/Emp/EmpDashboard.cshtml");
+
                     }
                 }
                 else
                 {
                     ViewData["Message"] ="Fail";
-                    return RedirectToAction("Login", login);
+                    return View("Login", login);
                 }
             }
             return View(login);
@@ -65,7 +72,7 @@ namespace Manager.Controllers
         public ActionResult Logout()
         {
             Session.Clear();//remove session
-            return RedirectToAction("Login");
+            return RedirectToRoute(new { controller = "Login", action = "Login" });
         }
 
        

@@ -1,0 +1,31 @@
+﻿.assigned {
+    margin: 20px;
+    width: 150px;
+    height: 150px;
+    background-color: orange;
+    align-content: center;
+    justify-content: center;
+}
+
+    .assigned img {
+        margin-top: 10px;
+    }
+
+.user {
+    margin: 20px;
+    width: 150px;
+    height: 150px;
+    background-color: cornflowerblue;
+    align-content: center;
+    justify-content: center;
+}
+
+    .user img {
+        margin-top: 10px;
+    }
+
+.UserDashboard {
+    margin-top: 15rem;
+    margin-left: 10rem;
+
+}

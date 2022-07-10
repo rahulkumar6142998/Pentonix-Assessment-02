@@ -25,7 +25,7 @@ namespace Manager.Models
         public string TaskStatus { get; set; }
 
         [Required(ErrorMessage = "Required")]
-        [Range(1,999, ErrorMessage = "Enter Planned Effort")]
+        [Range(1,100, ErrorMessage = "Enter Planned Effort")]
         public decimal PlanedEffort { get; set; }
 
         [Required(ErrorMessage = "Required")]

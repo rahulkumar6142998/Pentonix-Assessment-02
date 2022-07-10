@@ -16,12 +16,14 @@ namespace Manager.Controllers
         private pentonixEntities1 db = new pentonixEntities1();
 
         // GET: Tasks
+       
         public ActionResult Index()
         {
             return View(db.Tasks.ToList());
         }
 
         // GET: Tasks/Details/5
+   
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -37,6 +39,7 @@ namespace Manager.Controllers
         }
 
         // GET: Tasks/Create
+       
         public ActionResult Create()
         {
             dynamic dy = new ExpandoObject();
@@ -53,12 +56,10 @@ namespace Manager.Controllers
             return View(model);
         }
 
-        // POST: Tasks/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TicketNo,Task1,TaskStatus,PlanedEffort,Date,Comment")] Task task)
+        public ActionResult Create([Bind(Include = "TicketNo,Task1,Name,TaskStatus,PlanedEffort,Date,Comment")] Task task)
         {
             if (ModelState.IsValid)
             {
@@ -71,38 +72,12 @@ namespace Manager.Controllers
             return View(task);
         }
 
-        // GET: Tasks/Edit/5
-        public ActionResult Edit(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Task task = db.Tasks.Find(id);
-            if (task == null)
-            {
-                return HttpNotFound();
-            }
-            return View(task);
-        }
 
-        // POST: Tasks/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TicketNo,Task1,TaskStatus,PlanedEffort,Date,Comment")] Task task)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(task).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(task);
-        }
+
+
 
         // GET: Tasks/Delete/5
+      
         public ActionResult Delete(string id)
         {
             if (id == null)

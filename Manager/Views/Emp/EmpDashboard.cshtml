@@ -1,7 +1,41 @@
-﻿
-@{
-    ViewBag.Title = "EmpDashboard";
-}
+﻿<link href="~/Content/CSS/AdminnDashboard.css" rel="stylesheet" />
 
-<h2>EmpDashboard</h2>
 
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 AssignedTasks">
+            <h2>
+                Hello @ViewBag.Name
+            </h2>
+        </div>
+        <div class="col-md-6 logout">
+            <h2 style="color:antiquewhite">
+                @Html.ActionLink("Logout", "Logout", "Login")
+            </h2>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="row UserDashboard" style="display:flex">
+    <div class="user  text-center">
+        <img src="~/Imgs/users-group.png" />
+        <br />
+        <br />
+        <br />
+
+        @Html.ActionLink("Today Assigned", "TodayAssigned", "Emp")
+
+    </div>
+    <br/>
+    <div class="assigned text-center my-5">
+        <img src="~/Imgs/assigned_task.png" />
+        <br />
+        <br />
+        <br />
+
+        @Html.ActionLink("Assigned", "Assigned", "Emp")
+    </div>
+</div>
