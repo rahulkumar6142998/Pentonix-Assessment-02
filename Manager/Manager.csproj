@@ -136,6 +136,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\EmpController.cs" />
+    <Compile Include="Controllers\ForgetPasswordController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
@@ -143,6 +144,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\ResetPasswordModel.cs" />
     <Compile Include="Models\Task.cs">
       <DependentUpon>TaskEntities.tt</DependentUpon>
     </Compile>
@@ -250,6 +252,8 @@
     <Content Include="Views\Emp\Assigned.cshtml" />
     <Content Include="Views\Emp\TodayAssigned.cshtml" />
     <Content Include="Views\Emp\EditComment.cshtml" />
+    <Content Include="Views\ForgetPassword\ForgotPassword.cshtml" />
+    <Content Include="Views\ForgetPassword\ResetPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

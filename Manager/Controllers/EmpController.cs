@@ -79,11 +79,12 @@ namespace Manager.Controllers
         }
         [HttpPost]
         
-        public ActionResult EditComment(string comment ,string id)
+        public ActionResult EditComment(string comment , string status)
         {
-            id = Id;
+            var id = Id;
             var update = _db.Tasks.Where(x => x.TicketNo == id).FirstOrDefault();
             update.Comment = comment;
+            update.TaskStatus = status;
 
             if (ModelState.IsValid)
             {

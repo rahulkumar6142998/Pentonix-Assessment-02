@@ -28,6 +28,17 @@
         <div class="container__item">
             <form class="form">
                 <input type="text" name="Comment" class="form__field" placeholder="Enter Your Comment" />
+                <br />
+                <input type="text" name="status" list="name" placeholder="Task status">
+                <datalist id="name">
+                    <option value="Started">
+                    <option value="In progress">
+                    <option value="Completed">
+                </datalist>
+
+                <br />
+
+
                 <button type="submit" value="Post" class="btn btn--primary btn--inside uppercase">Post</button>
             </form>
         </div>
@@ -48,7 +59,7 @@
     }
 
         a:hover {
-            color: $button-bg-color;
+            color: grey;
         }
 
 
@@ -64,13 +75,17 @@
     .uppercase {
         text-transform: uppercase;
     }
+    .form__field{
 
+        margin-bottom:20px;
+    }
 
     .btn {
         display: inline-block;
         background: transparent;
         color: inherit;
         font: inherit;
+        margin-top: 20px;
         border: 0;
         outline: 0;
         padding: 0;
@@ -83,6 +98,7 @@
         width: 360px;
         background: #fff;
         font: inherit;
+        color:black;
         box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .1);
         border: 0;
         outline: 0;
