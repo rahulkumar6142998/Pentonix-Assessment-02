@@ -15,7 +15,7 @@ namespace Manager.Models
 
     public partial class Task
     {
-        [Required(ErrorMessage =  "Required")]
+        [Required(ErrorMessage =  "Ticket Number Must be Unique")]
         public string TicketNo { get; set; }
 
         [Required(ErrorMessage = "Required")]
@@ -35,7 +35,7 @@ namespace Manager.Models
 
         public string Comment { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Required")]
         public string Name { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿#Login {
     width: 400px;
-    height: 390px;
+    height: auto;
     background: #3c4647;
     margin: auto;
     margin-top: 170px;
@@ -14,7 +14,7 @@
 
 #Login2 {
     width: 400px;
-    height: 730px;
+    height: auto;
     background: #3c4647;
     margin: auto;
     margin-top: -24px;
@@ -62,3 +62,6 @@
 }
 
 
+#middel {
+   width:100px;height:40px;
+}

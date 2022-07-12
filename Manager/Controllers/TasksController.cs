@@ -42,10 +42,11 @@ namespace Manager.Controllers
        
         public ActionResult Create()
         {
-            dynamic dy = new ExpandoObject();
-            var Fname = db.Users.ToList();
+            
+            var Firstname = db.Users.ToList();
             List<string> list = new List<string>();
-            foreach (var s in Fname)
+            
+            foreach (var s in Firstname)
             {
                 list.Add(s.FirstName);
             }
@@ -61,12 +62,24 @@ namespace Manager.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TicketNo,Task1,Name,TaskStatus,PlanedEffort,Date,Comment")] Task task)
         {
+
+
             if (ModelState.IsValid)
             {
+                var check = db.Tasks.FirstOrDefault(s => s.TicketNo == task.TicketNo);
+                if (check == null)
+                {
 
-                db.Tasks.Add(task);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                    db.Tasks.Add(task);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ViewBag.error = "Ticket Number Must Be Unique";
+                    var model = new Task();
+                    return View(model);
+                }
             }
 
             return View(task);
@@ -111,5 +124,46 @@ namespace Manager.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+
+
+
+
+
+
+
+
+        public ActionResult Edit(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Task assignedTask = db.Tasks.Find(id);
+            if (assignedTask == null)
+            {
+                return HttpNotFound();
+            }
+            return View(assignedTask);
+        }
+
+        // POST: AssignedTasks/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "TicketNo,Name,Task,PlannedEffort,Status,Date,Comment")] Task assignedTask)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(assignedTask).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(assignedTask);
+        }
+
+
     }
 }

@@ -1,0 +1,27 @@
+﻿button 
+   {
+    border-radius: .5rem;
+    box-sizing: border-box;
+    color: lightblue;
+    display: flex;
+    font-size: 16px;
+    justify-content: center;
+    padding: 1rem 1.75rem;
+    text-decoration: none;
+    width: auto;
+    border: 0;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+button:hover {
+    background-color:cadetblue;
+}
+
+@media (min-width: 768px) {
+    button {
+        padding: 1rem 2rem;
+    }
+}

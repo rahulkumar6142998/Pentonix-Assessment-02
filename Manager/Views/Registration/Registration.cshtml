@@ -60,8 +60,8 @@
             </div>
 
             <div class="input">
-                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { placeholder = "Confirm Password", @class = "text-danger" })
+                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { placeholder = "Confirm Password", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new {  @class = "text-danger" })
             </div>
 
 
@@ -72,7 +72,7 @@
             </div>
             <br />
             <div>
-                <button id="middel">@Html.ActionLink("Sign In", "Login", "Login")</button>
+                <button id="middel" >@Html.ActionLink("Cancel", "Login", "Login")</button>
             </div>
 
         </div>

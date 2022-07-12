@@ -3,10 +3,32 @@
 @{
     ViewBag.Title = "AllUser";
 }
+<link href="~/Content/CSS/buttons.css" rel="stylesheet" />
 
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 AssignedTasks">
+            <h2>
 
-<table class="table table-bordered table-condensed table-responsive table-hover">
+                <button>
+                    @Html.ActionLink("DashBoard", "AdminDashBoard", "Admin")
+                </button>
+            </h2>
+        </div>
+        
+    </div>
+
+</div>
+<div class="col-md-6 logout">
+    <h2>
+        
+    </h2>
+</div>
+
+<br />
+<br />
+<table class="table table-bordered table-condensed table-responsive">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.FirstName)

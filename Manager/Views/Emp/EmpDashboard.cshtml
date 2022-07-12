@@ -1,17 +1,19 @@
 ﻿<link href="~/Content/CSS/AdminnDashboard.css" rel="stylesheet" />
-
+<link href="~/Content/CSS/buttons.css" rel="stylesheet" />
 
 
 <div class="container">
     <div class="row">
         <div class="col-md-6 AssignedTasks">
             <h2>
-                Hello @ViewBag.Name
+                Hello @Session["Name"]
             </h2>
         </div>
         <div class="col-md-6 logout">
-            <h2 style="color:antiquewhite">
-                @Html.ActionLink("Logout", "Logout", "Login")
+            <h2>
+                <button>
+                    @Html.ActionLink("Logout", "Logout", "Login")
+                </button>
             </h2>
         </div>
     </div>
@@ -29,7 +31,7 @@
         @Html.ActionLink("Today Assigned", "TodayAssigned", "Emp")
 
     </div>
-    <br/>
+    <br />
     <div class="assigned text-center my-5">
         <img src="~/Imgs/assigned_task.png" />
         <br />

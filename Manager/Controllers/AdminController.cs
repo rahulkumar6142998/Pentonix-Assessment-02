@@ -12,7 +12,7 @@ namespace Manager.Controllers
         private pentonixEntities1 _db = new pentonixEntities1();
 
         // GET: Admin
-        [Authorize]
+    
         public ActionResult AdminDashboard()
         {
            

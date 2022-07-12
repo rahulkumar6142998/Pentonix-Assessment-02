@@ -3,7 +3,7 @@
 }
 <link href="~/Content/CSS/AdminnDashboard.css" rel="stylesheet" />
 
-
+<link href="~/Content/CSS/buttons.css" rel="stylesheet" />
 
 
 
@@ -11,12 +11,12 @@
     <div class="row">
         <div class="col-md-6 AssignedTasks">
             <h2>
-                Hello @ViewBag.Name
+                Hello @Session["Name"]
             </h2>
         </div>
         <div class="col-md-6 logout">
             <h2>
-                @Html.ActionLink("Logout", "Logout", "Login")
+                <button>@Html.ActionLink("Logout", "Logout", "Login")</button> 
             </h2>
         </div>
     </div>

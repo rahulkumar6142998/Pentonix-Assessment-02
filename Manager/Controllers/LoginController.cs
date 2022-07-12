@@ -40,6 +40,7 @@ namespace Manager.Controllers
                     {
                         
                         Session["Email"] = check.FirstOrDefault().Email;
+                        Session["Name"] = check.FirstOrDefault().FirstName;
                         ViewBag.Name = check[0].FirstName;
                        
                         //  return RedirectToRoute(new { controller = "Admin", action = "AdminDashboard" });
